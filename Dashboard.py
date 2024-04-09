@@ -73,7 +73,7 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 lida = Manager(text_gen=llm("openai"))
 textgen_config = TextGenerationConfig(n=1, temperature=0.5, model="gpt-3.5-turbo", use_cache=True)
 
-file_path = r"C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\test-data.csv"
+file_path = r"test-data.csv"
 
 # Function to convert base64 string to Image
 def base64_to_image(base64_string):
@@ -425,9 +425,9 @@ def main():
 
 
         
-            file_path1 = r'C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\Real Data Updated last 2 april\10YearDatabase.csv'
-            file_path2 = r'C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\call-report-data-2023-12\FOICU.txt'
-            file_path3 = r'C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\Real Data Updated last 2 april\ATM Locations.csv'
+            file_path1 = r'Real Data Updated last 2 april\10YearDatabase.csv'
+            file_path2 = r'call-report-data-2023-12\FOICU.txt'
+            file_path3 = r'Real Data Updated last 2 april\ATM Locations.csv'
             # df, df2 = load_data_from_db(file_path1,file_path2)
             df = pd.read_csv(file_path1)
             df2 = pd.read_csv(file_path2)
