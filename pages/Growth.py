@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import streamlit_shadcn_ui as ui
 import warnings
 from PIL import Image
 import plotly.express as px
@@ -28,7 +27,7 @@ st.set_page_config(page_title="CU Benchmarking BI", page_icon=":bar_chart:", lay
 
 app_title = "Credit Union Benchmarking BI"
 
-image_path = r"C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\AIVALOGO.jpg"
+image_path = r"AIVA-logo.png"
 
 # Open the image using PIL
 image = Image.open(image_path)
