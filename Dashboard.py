@@ -419,7 +419,7 @@ def main():
 
 
         
-            file_paths1 = r'Real Data Updated last 2 april\10YearDatabase.csv'
+            file_paths1 = r'10YearDatabase.csv'
             file_paths2 = r'call-report-data-2023-12\FOICU.txt'
             file_paths3 = r'Real Data Updated last 2 april\ATM Locations.csv'
             # df, df2 = load_data_from_db(file_path1,file_path2)
