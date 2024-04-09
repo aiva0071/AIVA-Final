@@ -48,7 +48,7 @@ port = "5432"
 # Page Layout and Visuals
 
 
-image_path = r"C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\AIVA-logo.png"
+image_path = r"AIVA-logo.png"
 
 # Open the image using PIL
 image = Image.open(image_path)
