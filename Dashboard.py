@@ -1,4 +1,4 @@
-!pip install plotly-express
+pip install plotly-express
 import pandas as pd
 import streamlit as st
 #import streamlit_shadcn_ui as ui
