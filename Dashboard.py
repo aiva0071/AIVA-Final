@@ -1,14 +1,9 @@
-
 import pandas as pd
 import streamlit as st
-#import streamlit_shadcn_ui as ui
 import warnings
 from PIL import Image
 import plotly.express as px
-
-
 # Chat Bot Imports
-
 import streamlit as st
 import openai
 import pandas as pd
