@@ -1,7 +1,5 @@
-
 import pandas as pd
 import streamlit as st
-import streamlit_shadcn_ui as ui
 import warnings
 from PIL import Image
 import plotly.express as px
@@ -15,11 +13,11 @@ st.set_page_config(page_title="CU Benchmarking BI", page_icon=":bar_chart:", lay
 # st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 
 # Database connection parameters
-dbname = "postgres"
-user = "postgres"
-password = "Aiva@2024"
-host = "192.168.1.12"
-port = "5432"
+# dbname = "postgres"
+# user = "postgres"
+# password = "Aiva@2024"
+# host = "192.168.1.12"
+# port = "5432"
 
 
 
@@ -47,18 +45,8 @@ with col2:
 
 # tab1, tab2,tab3 = st.tabs(["ChatApp","Dashboard","DatabaseOverview"])
 
-
-
-import psycopg2
-import pandas as pd
-import streamlit as st
-import streamlit_shadcn_ui as ui
-import warnings
-from PIL import Image
-import plotly.express as px
-import plotly.graph_objects as go
 warnings.filterwarnings('ignore')
-@st.cache_data(hash_funcs={psycopg2.extensions.connection: id})
+# @st.cache_data(hash_funcs={psycopg2.extensions.connection: id})
 def load_data_from_db(file_path1,file_path2):
     df = pd.read_csv(file_path1)
     df2 = pd.read_csv(file_path2)
@@ -79,9 +67,9 @@ def display_card(title, column):
     </div>
     """, unsafe_allow_html=True)
 
-file_path1 = r'C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\Real Data Updated last 2 april\10YearDatabase.csv'
-file_path2 = r'C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\call-report-data-2023-12\FOICU.txt'
-file_path3 = r'C:\Users\nihar.patel\OneDrive - AIVA Partners Pvt. Ltd\Desktop\Work\Dashboard\Real Data Updated last 2 april\ATM Locations.csv'
+file_path1 = r'Real Data Updated last 2 april\10YearDatabase.csv'
+file_path2 = r'call-report-data-2023-12\FOICU.txt'
+file_path3 = r'Real Data Updated last 2 april\ATM Locations.csv'
 # df, df2 = load_data_from_db(file_path1,file_path2)
 df = pd.read_csv(file_path1)
 df2 = pd.read_csv(file_path2)
