@@ -1,27 +1,10 @@
-import subprocess
-import sys
-
-# Function to install plotly-express
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-# Attempt to import plotly.express
-try:
-    import plotly.express as px
-except ImportError:
-    install("plotly-express")
-    import plotly.express as px
-
-# Rest of your Streamlit app code goes here
-
-
 
 import pandas as pd
 import streamlit as st
 #import streamlit_shadcn_ui as ui
 import warnings
 from PIL import Image
-# import plotly.express as px
+import plotly.express as px
 
 
 # Chat Bot Imports
