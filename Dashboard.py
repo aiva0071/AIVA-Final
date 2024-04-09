@@ -334,7 +334,6 @@ def main():
             process_user_input(st.session_state['last_user_input'], context, chat_container, regenerate=True)
         with tab2:
     
-            @st.cache_data(hash_funcs={psycopg2.extensions.connection: id})
             def load_data_from_db(file_path1,file_path2):
                 df = pd.read_csv(file_path1)
                 df2 = pd.read_csv(file_path2)
