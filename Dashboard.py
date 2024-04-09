@@ -1,7 +1,7 @@
 
 import pandas as pd
 import streamlit as st
-import streamlit_shadcn_ui as ui
+#import streamlit_shadcn_ui as ui
 import warnings
 from PIL import Image
 import plotly.express as px
