@@ -9,8 +9,6 @@ def install(package):
 try:
     import plotly.express as px
 except ImportError:
-    # If import fails, install plotly-express and import again
-    print("Installing plotly-express. Please wait...")
     install("plotly-express")
     import plotly.express as px
 
