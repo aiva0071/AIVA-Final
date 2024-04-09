@@ -73,7 +73,7 @@ file_paths3 = r'ATM Locations.csv'
 # df, df2 = load_data_from_db(file_path1,file_path2)
 df = pd.read_csv(file_paths1)
 df2 = pd.read_csv(file_paths2)
-ATM_Locations = pd.read_csv(file_path3, encoding='ISO-8859-1')
+ATM_Locations = pd.read_csv(file_paths3, encoding='ISO-8859-1')
 df_combined = pd.merge(df, df2[['CU_NUMBER', 'CU_NAME', 'STATE', 'Peer_Group']], on="CU_NUMBER", how="left")
 
 selected_cu_name = "THE GOLDEN 1"
