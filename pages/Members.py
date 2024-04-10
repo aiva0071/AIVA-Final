@@ -308,6 +308,7 @@ def plot_members_growth_over_quarters(selected_cu_name, df_combined):
     fig.add_trace(go.Scatter(x=quarter_labels, y=growth_rate_cu, mode='lines+markers', name=f'{selected_cu_name}'))
     fig.add_trace(go.Scatter(x=quarter_labels, y=growth_rate_state, mode='lines+markers', name='State Average'))
     fig.add_trace(go.Scatter(x=quarter_labels, y=growth_rate_peer, mode='lines+markers', name='Peer Group Average'))
+    fig.data[0].name = "CU"
 
     fig.update_layout(
         title=f"Membership Growth Rate Over Quarters for {selected_cu_name}",
