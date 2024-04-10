@@ -151,6 +151,7 @@ def generate_growth_rate_graph(selected_cu_name, attribute):
     fig.add_trace(go.Scatter(x=quarter_labels, y=growth_rate_cu, mode='lines+markers', name=selected_cu_name))
     fig.add_trace(go.Scatter(x=quarter_labels, y=growth_rate_state, mode='lines+markers', name=f"{selected_state} State Avg"))
     fig.add_trace(go.Scatter(x=quarter_labels, y=growth_rate_peer, mode='lines+markers', name=f"{selected_peer_group} Peer Avg"))
+    fig.data[0].name = "CU"
 
     fig.update_layout(
         title=f"{attribute} Growth Rate",
