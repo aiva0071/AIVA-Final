@@ -41,7 +41,7 @@ with col1:
     st.markdown(f"### {app_title}", unsafe_allow_html=True)
 
 with col2:
-    st.image(image, width=200) 
+    st.image(image, width=130) 
 
 # tab1, tab2,tab3 = st.tabs(["ChatApp","Dashboard","DatabaseOverview"])
 
