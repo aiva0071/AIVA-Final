@@ -3,10 +3,7 @@ import streamlit as st
 import warnings
 from PIL import Image
 import plotly.express as px
-# Chat Bot Imports
-import streamlit as st
 import openai
-import pandas as pd
 #import psycopg2
 from PIL import Image
 import os
@@ -18,7 +15,6 @@ import base64
 import json
 import numpy as np
 # from openai.embeddings_utils import distances_from_embeddings
-import pandas as pd
 import os.path
 
 
