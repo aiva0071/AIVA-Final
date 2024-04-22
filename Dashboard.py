@@ -17,13 +17,8 @@ import numpy as np
 # from openai.embeddings_utils import distances_from_embeddings
 import os.path
 
-
-
-
 warnings.filterwarnings('ignore')
-
 st.set_page_config(page_title="CU Benchmarking BI", page_icon=":bar_chart:", layout="wide")
-
 # st.title(" 5300 Credit Union Metrics")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 
@@ -34,28 +29,9 @@ password = "Aiva@2024"
 host = "192.168.1.12"
 port = "5432"
 
-
-# ------------------------------------------------------------------------------------------------
-# Page Layout and Visuals
-
-
 image_path = r"AIVA-logo.png"
 
-# Open the image using PIL
 image = Image.open(image_path)
-
-# Display the image using Streamlit on the sidebar too
-# st.sidebar.image(image, use_column_width=True)
-# Using columns to layout the title and the logo
-# col1, col2 = st.columns([8,2])  # Adjust the ratio as needed for your layout
-
-# with col1:
-#     st.markdown(f"### Conversational BI", unsafe_allow_html=True)
-
-# with col2:
-#     st.image(image, width=200) 
-
-
 
 #--------------------------------Chat App Functions--------------------------------------
 load_dotenv()
@@ -205,8 +181,6 @@ def calculate_growth_rate(df, attribute, group, group_value, quarter_1, quarter_
         # Calculate the growth rate and round it to 2 decimal places
         growth_rate = round(((value_2 - value_1) / value_1) * 100, 2) if value_1 != 0 else 0
         return growth_rate
-
-
 def calculate_cu_growth_rate(df, attribute, cu_name, quarter_1, quarter_2):
     # Filter the data for the selected CU in the given quarters
     filtered_df = df[(df['CU_NAME'] == cu_name) & (df['Quarter'].isin([quarter_1, quarter_2]))]
@@ -224,12 +198,6 @@ def calculate_cu_growth_rate(df, attribute, cu_name, quarter_1, quarter_2):
         growth_rate = None
     
     return growth_rate
-
-
-# Streamlit app layout
-# st.set_page_config(layout="wide", page_title="Credit Union Benchmark BI", page_icon=":bar_chart:")
-
-
 def main():
     # Header with logo and title
     col1, col2 = st.columns([0.90, 0.10])
@@ -285,8 +253,6 @@ def main():
                 st.markdown(user_message, unsafe_allow_html=True)
                 st.markdown(bot_message, unsafe_allow_html=True)
                 st.markdown("---")
-            
-
         # Check if the 'last_user_input' key exists in session_state, initialize if not
         if 'last_user_input' not in st.session_state:
             st.session_state['last_user_input'] = ""
@@ -356,8 +322,6 @@ def main():
                     num /= 1000.0
                 # Add more suffixes if you need them
                 return f'{num:.2f}{" KMBT"[magnitude]}'
-
-
             def inject_custom_button_css():
                 custom_css = """
                 <style>
@@ -412,9 +376,6 @@ def main():
                 </style>
                 """
                 st.markdown(custom_css, unsafe_allow_html=True)
-
-
-        
             file_paths1 = r'10YearDatabase.csv'
             file_paths2 = r'FOICU.txt'
             file_paths3 = r'ATM Locations.csv'
@@ -454,12 +415,6 @@ def main():
 
             for col, (title, value) in zip([col1, col2, col3, col4], metrics):
                 display_card(title, value, col)
-            
-            
-
-        # -------------------------------------------------------------------------------
-        #   graphs generation 
-        # Quarter Selection 
 
             filtered_df_for_selected_cu = df_combined[df_combined['CU_NAME'] == selected_cu_name]
             available_quarters = sorted(filtered_df_for_selected_cu['Quarter'].unique())
@@ -471,10 +426,6 @@ def main():
             else:
                 st.error("Not enough data available for the selected CU to compare quarters.")
                 # Optionally, handle cases with less than 2 quarters available
-
-
-            
-
 
             if 'selected_button' not in st.session_state:
                 st.session_state.selected_button = ""
@@ -576,25 +527,11 @@ def main():
                     st.plotly_chart(fig_loans_per_member, use_container_width=True)
                 with cols[2]:
                     st.plotly_chart(fig_assets_per_member, use_container_width=True)
-
-
-
-
-
-
-
-
-
-
-
-
             # Check which button was clicked and display graphs accordingly
             if st.session_state.selected_button == "Risk":
                 attributes = ['Delinquent Credit card loans (Amount) 0-180', 'Delinquent Credit card loans (Amount) 180+']
                 graph_cols = st.columns(3)
                 selected_quarter = available_quarters[0]
-
-
                 selected_cu_name = 'THE GOLDEN 1'
                 selected_cu_data = df_combined[df_combined['CU_NAME'] == selected_cu_name]
                 selected_state = selected_cu_data['STATE'].iloc[0]
@@ -602,8 +539,6 @@ def main():
                 cu_members = selected_cu_data['Total amount of loans and leases'].iloc[0]
                 state_total_members = df_combined[df_combined['STATE'] == selected_state]['Total amount of loans and leases'].sum()
                 peer_group_total_members = df_combined[df_combined['Peer_Group'] == selected_peer_group]['Total amount of loans and leases'].sum()
-                
-
 
                 # Step 3: Calculate average Delinquent Credit card loans (Amount) 0-180 for all CU's in the state and peer group
                 state_avg_0_180 = df_combined[df_combined['STATE'] == selected_state]['Deliquent Credit card loans (Amount) 0-180'].mean()
@@ -665,9 +600,6 @@ def main():
                 fig_0_180.update_traces(marker_color=['#19618A', '#005950', '#09B39C'])
                 fig_180_plus.update_traces(marker_color=['#19618A', '#005950', '#09B39C'])
                 fig_total.update_traces(marker_color=['#19618A', '#005950', '#09B39C'])
-                # Display the graphs in one single row with three columns
-
-
                 cols = st.columns(3)
                 with cols[0]:
                     st.plotly_chart(fig_0_180, use_container_width=True)
@@ -677,25 +609,6 @@ def main():
 
                 with cols[2]:
                     st.plotly_chart(fig_total, use_container_width=True)
-                
-                
-                # if 'navigate_to' not in st.session_state:
-                #     st.session_state.navigate_to = None
-
-                # # Place a button on the main page
-                # if st.button('Show Risk and Analysis'):
-                #     # This will trigger your app to display the risk analysis
-                #     st.session_state.navigate_to = "risk_analysis"
-
-                # # Based on what 'navigate_to' is set to, display the appropriate page/view
-                # if st.session_state.navigate_to == "risk_analysis":
-                #     # Here you would clear the page and show the risk analysis
-                #     riskandanalysis.show_risk_analysis()
-                    
-
-
-
-
             if st.session_state.selected_button == "Growth" and len(available_quarters) >= 2:
                 attributes = ['TOTAL ASSETS', 'Total amount of loans and leases', 'NO OF MEMBERS']
                 
@@ -735,37 +648,10 @@ def main():
             # Display which button is selected
             if st.session_state.selected_button:
                 st.write(f"{st.session_state.selected_button} button clicked")
-
-
-
-
-
-
-            
-
-                        
-
-                                
-                    
-            
-        
-
-
         # Content for DatabaseOverview tab
         with tab3:
             st.header("DatabaseOverview")
             st.write("This is a sample content for the DatabaseOverview tab. Replace this with your actual DatabaseOverview content.")
     
-
 if __name__ == "__main__":
     main()
-
-
-#--------------------------------------Dashboard Functions----------------
-        
-# Define a function to display each metric in a card-like container
-
-
-
-
-
