@@ -131,7 +131,8 @@ def generate_delinquency_per_member_plot(selected_cu_name, attribute,attribute_t
         yaxis=dict(title='Delinquency Per Member'),
         showlegend=False,
         margin=dict(l=10, r=10, t=20, b=20),
-        title=f"Delinquency Per Member: {attribute_title}"
+        title=f"Delinquency Per Member: {attribute_title}",
+        hovermode=False
     )
     
     fig.update_traces(
@@ -187,7 +188,8 @@ def generate_delinquency_rate_plot(selected_cu_name, attribute,attribute_title, 
         yaxis=dict(title='Delinquency Rate %'),
         showlegend=False,
         margin=dict(l=10, r=10, t=20, b=20),
-        title=f"Delinquency Rate %: {attribute_title}"
+        title=f"Delinquency Rate %: {attribute_title}",
+        hovermode=False
     )
     
     fig.update_traces(
