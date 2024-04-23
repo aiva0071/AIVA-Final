@@ -496,8 +496,9 @@ def main():
                             yaxis=dict(title='Members'),
                             # title=dict(text=f" ", x=0.5, xanchor='center'),
                             font=dict(size=16),
-                            height=400  # Adjust height as needed to fit in a single row nicely
-                        )
+                            height=400,
+                            hovermode=False            
+                )
                 fig_members.update_traces(marker_color=['#19618A', '#005950', '#09B39C'])
                 fig_loans_per_member.update_layout(
                             autosize=True,
@@ -506,8 +507,9 @@ def main():
                             yaxis=dict(title='Ratio'),
                             # title=dict(text=f" from {quarter_1} to {quarter_2}", x=0.5, xanchor='center'),
                             font=dict(size=16),
-                            height=400  # Adjust height as needed to fit in a single row nicely
-                        )
+                            height=400, 
+                            hovermode=False            
+                            )
                 fig_loans_per_member.update_traces(marker_color=['#19618A', '#005950', '#09B39C'])
                 
                 fig_assets_per_member.update_layout(
@@ -517,8 +519,9 @@ def main():
                             yaxis=dict(title='Ratio'),
                             # title=dict(text=f" from {quarter_1} to {quarter_2}", x=0.5, xanchor='center'),
                             font=dict(size=16),
-                            height=400  # Adjust height as needed to fit in a single row nicely
-                        )
+                            height=400, 
+                            hovermode=False    
+                            )
                 fig_assets_per_member.update_traces(marker_color=['#19618A', '#005950', '#09B39C'])
                 cols = st.columns(3)
                 with cols[0]:
@@ -585,7 +588,8 @@ def main():
                     xaxis=dict(title='Delinquent Credit card loans (Amount)'),
                     yaxis=dict(title='Cards'),
                     font=dict(size=16),
-                    height=400  # Adjust height as needed to fit in a single row nicely
+                    height=400, 
+                    hovermode=False    
                 )
 
                 fig_0_180 = px.bar(data_0_180, x='Category', y='Value', title=' 0-180 Delinquency ')
@@ -640,7 +644,8 @@ def main():
                             yaxis=dict(title='Growth Rate (%)'),
                             title=dict(text=f" from {quarter_1} to {quarter_2}", x=0.5, xanchor='center'),
                             font=dict(size=16),
-                            height=400  # Adjust height as needed to fit in a single row nicely
+                            height=400,
+                            hovermode=False
                         )
                         fig.update_traces(marker_color=['#19618A', '#005950', '#09B39C'])
                         st.plotly_chart(fig, use_container_width=True)
