@@ -157,7 +157,8 @@ def generate_growth_rate_graph(selected_cu_name, attribute):
         title=f"{attribute} Growth Rate",
         xaxis_title="Quarter",
         yaxis_title="Growth Rate (%)",
-        showlegend=True
+        showlegend=True,
+        hovermode=False
     )
 
     st.plotly_chart(fig, use_container_width=True)
