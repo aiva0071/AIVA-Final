@@ -38,7 +38,7 @@ load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 lida = Manager(text_gen=llm("openai"))
-textgen_config = TextGenerationConfig(n=1, temperature=0.5, model="gpt-3.5-turbo", use_cache=True)
+textgen_config = TextGenerationConfig(n=1, temperature=0.5, model="gpt-4-turbo", use_cache=True)
 
 file_path = r"test-data.csv"
 
@@ -64,9 +64,9 @@ def query_gpt_3_5_turbo_with_context(prompt, context):
     Queries GPT-3.5 Turbo with a given prompt and context.
     """
     client = openai.OpenAI(api_key=openai.api_key)
-    model="gpt-3.5-turbo"
+    model="gpt-4-turbo"
     messages = [
-            {"role": "system", "content": 'You are a helpful assistant who is going to answer questions about the given credit union financial data. The data consists financial metrics over different quarter and years for 2 Credit unions with CU NUMBER, 61650 and 61466.'},
+            {"role": "system", "content": 'You are a knowledgeable assistant specializing in credit union financial data analysis. The dataset consists of various financial metrics collected over several quarters and years for credit union one, its State Credit Unions average, its Peer Credit Unions average. Your role is to provide insights and answer questions based on this data. Under no circumstances should you generate or reference code, plots, charts, or graphs. Even if it is mentioned in the prompt to Plot or Chart or Graph, do not mention it. Focus on delivering information and context relevant to the users question, avoiding any mention of visualizations or inability to create them. And never say that you cant generate graphs.'},
             {"role": "user", "content": context},
             {"role": "user", "content": prompt}
         ]
@@ -87,7 +87,7 @@ def generate_suggested_prompts(context, chat_history):
     Generates suggested prompts based on the given context and chat history.
     """
     client = openai.OpenAI(api_key=openai.api_key)
-    model = "gpt-3.5-turbo"
+    model = "gpt-4-turbo"
 
     # Prepare the chat history for the API call 
     history_formatted = [{"role": "user", "content": entry['user']} for entry in chat_history]
