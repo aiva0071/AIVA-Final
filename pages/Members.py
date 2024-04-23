@@ -143,7 +143,8 @@ def generate_atm_locations_comparison_plot(selected_cu_name, ATM_Locations, df_c
         plot_bgcolor='rgba(0,0,0,0)', 
         yaxis=dict(title='Number of ATMs'),
         showlegend=False,
-        margin=dict(l=10, r=10, t=20, b=20)
+        margin=dict(l=10, r=10, t=20, b=20),
+        hovermode=False
     )
 
     fig.update_traces(
@@ -199,7 +200,8 @@ def calculate_members_per_atm(selected_cu_name, ATM_Locations, df_combined):
         plot_bgcolor='rgba(0,0,0,0)',
         yaxis=dict(title='Members per ATM'),
         showlegend=False,
-        margin=dict(l=10, r=10, t=20, b=20)
+        margin=dict(l=10, r=10, t=20, b=20),
+        hovermode=False
     )
 
     fig.update_traces(
@@ -248,7 +250,8 @@ def plot_members_comparison(selected_cu_name, df_combined):
         plot_bgcolor='rgba(0,0,0,0)', 
         yaxis=dict(title='Number of Members'),
         showlegend=False,
-        margin=dict(l=10, r=10, t=20, b=20)
+        margin=dict(l=10, r=10, t=20, b=20),
+        hovermode=False
     )
 
     fig.update_traces(
@@ -315,7 +318,8 @@ def plot_members_growth_over_quarters(selected_cu_name, df_combined):
         xaxis_title="Quarter",
         yaxis_title="Growth Rate (%)",
         legend_title="Legend",
-        showlegend=True
+        showlegend=True,
+        hovermode=False
     )
 
     st.plotly_chart(fig, use_container_width=True)
